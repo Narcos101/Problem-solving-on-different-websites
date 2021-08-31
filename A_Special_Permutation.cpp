@@ -48,17 +48,30 @@ const double pi = 1.00 * acos(-1.00);
 
 
 
-void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
+void solve(){  
+    int n;
+    cin >> n;
+    vi v;
+    if(n % 2 == 0){
+        for(int i = n; i>=1; i--){
+            cout << i << " ";
+        }
+        cout << endl;
     }
     else{
+        int x = n/2;
+        for(int i = 0; i < n; i++){
+            v.push_back(i+1);
+        }
+        sort(all(v),greater<int>());
+        swap(v[x],v[x+1]);
+        for(auto i: v){
+            cout << i << " ";
+        }
+        cout << endl;
 
     }
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;
@@ -67,4 +80,4 @@ int main(){
     while(t--){
         solve();
     }
-}
+}   

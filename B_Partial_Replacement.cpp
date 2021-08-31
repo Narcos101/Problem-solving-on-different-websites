@@ -49,16 +49,24 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
-    }
-    else{
-
-    }
+    int n,k;
+    cin >> n >> k;
+    string s;
+    cin >> s;
+    int i = s.find_first_of('*');
+    int res = 1;
+    while(true){
+        int j = min(n-1,i+k);
+        for(; i < j && s[j] == '.'; j--){
+        }
+        if(i == j){
+            break;
+        }
+        res++;
+        i = j;
+    }   
+    cout << res << endl; 
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;

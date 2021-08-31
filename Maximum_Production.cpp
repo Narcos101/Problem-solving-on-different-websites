@@ -49,16 +49,10 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
-    }
-    else{
-
-    }
+    int d,x,y,z;
+    cin >> d >> x >> y >> z;
+    cout << max(7*x, y*d+ z*(7-d)) << endl;
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;

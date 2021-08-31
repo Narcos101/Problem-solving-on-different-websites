@@ -49,22 +49,23 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
+    // 2 * n players pairs formed randomly, to find whether the players of the first team win regardless of the pairs they are matched in 
+
+    int n;
+    cin >> n;
+    int temp;
+    vector<int>v;
+    for(int i = 0; i < 2*n;i++){
+        cin >> temp;
+        v.push_back(temp);
+    }
+    sort(v.begin(),v.end());
+    if(v[n-1] < v[n]) cout << "YES" << endl;
+    else cout << "NO" << endl;
         
-    }
-    else{
-
-    }
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;
-    int t;
-    cin >> t;
-    while(t--){
-        solve();
-    }
+    solve();
 }

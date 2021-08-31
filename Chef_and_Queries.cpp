@@ -46,25 +46,43 @@ const int inf = 1e9 + 7;
 const double eps = 1e-6;
 const double pi = 1.00 * acos(-1.00);
 
+// (X-i+L)^2 + a[i]
+// L <= i <= R
+// 2ay;
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
-    }
-    else{
+    int n,k;
+    cin >> n >> k;
+    vector<int>v;
+    int temp;
+    for(int i = 0; i < n; i++){
+        cin >> temp;
+        v.pb(temp);
+    }    
+    int type,l,r,x,y;
+    while(k --){
+        cin >> type;
+        if(type == 1){
+            cin >> l >> r >> x;
+            l--;
+            r--;
 
+            for(int i = l; i <= r; i++){
+                v[i] = v[i] + pow((x+(i+1)-(l+1)),2);
+            }
+        }
+        else{
+            cin >> y;
+            y--;
+            cout << v[y] << endl;
+        }
     }
+
 }
 
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;
-    int t;
-    cin >> t;
-    while(t--){
-        solve();
-    }
+    solve();
 }

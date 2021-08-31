@@ -49,16 +49,14 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
-    }
-    else{
-
-    }
+    int k;
+    cin >> k;
+    // We want to brew a potion(which includes magic essence and water)
+    // percentage of magic essence is given which the potion should contain
+    // we dont care about the volume of the potion only min no of steps required to brew it and the ratio
+    int gced = __gcd(k,100-k);
+    cout << k/gced + (100-k)/gced << endl;
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;

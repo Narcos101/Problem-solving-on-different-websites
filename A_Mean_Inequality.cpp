@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-
+//Pain of discipline is better than pain of regret
 #define pb push_back
 #define mp make_pair 
 #define fr first
@@ -14,16 +14,16 @@
 #define min3(a, b, c) min(a, min(b, c))
 #define max3(a, b, c) max(a, max(b, c))
 #define alla(a, n) a, a + n
-
+ 
 using namespace std;
-
+ 
 // Some typedef's
 typedef long long ll;
 typedef unsigned long long ull;
 typedef pair<ll, ll> ii;
 typedef vector<ll> vi;
 typedef vector<ii> vii;
-
+ 
 // Some frequently used functions
 template <typename T>
 T modpow(T base, T exp, T modulus){  
@@ -36,35 +36,26 @@ T modpow(T base, T exp, T modulus){
     return result;
 }
 ll lcm(ll a, ll b) { return (a * (b / __gcd(a, b))); }
-//Repeat,Example,Approach,Code,Testcases,Optimize
-// int overflow, array bounds special cases (n=1?) 
-// do smth instead of nothing and stay organized 
-// WRITE STUFF DOWN DON'T GET STUCK ON ONE APPROACH
-
+ 
 // Some contants
 const int inf = 1e9 + 7;
 const double eps = 1e-6;
 const double pi = 1.00 * acos(-1.00);
 
-
-
-void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
-    }
-    else{
-
-    }
-}
-
-
 int main(){
-    ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;
-    int t;
-    cin >> t;
-    while(t--){
-        solve();
-    }
+	int t;
+	cin >> t;
+	while(t--){
+        int n;
+        cin >> n;
+        ll a[2 * n];
+        for(int i = 0; i < 2 * n;i++){
+            cin >> a[i];
+        }
+        sort(a,a+2*n);
+        for(int i = 0 ; i< n; i++){
+            cout << a[i] << " " << a[i+n] << " ";
+        }
+        cout << endl;
+	}
 }

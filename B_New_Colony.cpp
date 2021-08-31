@@ -45,17 +45,25 @@ ll lcm(ll a, ll b) { return (a * (b / __gcd(a, b))); }
 const int inf = 1e9 + 7;
 const double eps = 1e-6;
 const double pi = 1.00 * acos(-1.00);
+# define N 100000
 
-
-
-void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
-    }
-    else{
-
+int n;
+int a[N];
+ 
+void solve() {
+    int k; cin >> n >> k;
+    for(int i = 1; i <= n; ++i) cin >> a[i]; a[n+1] = 0;
+    while (k--) {
+        int u = 1;
+        while (u <= n) {
+            if (a[u] >= a[u+1]) ++u;
+            else {
+                a[u]++;
+                break;
+            }
+        }
+        if (u == n+1) { cout << -1 << endl; return;}
+        if (k == 0) cout << u << endl;
     }
 }
 
@@ -65,6 +73,7 @@ int main(){
     int t;
     cin >> t;
     while(t--){
+        // cout << t << endl;
         solve();
     }
 }

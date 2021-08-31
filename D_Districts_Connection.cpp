@@ -46,19 +46,48 @@ const int inf = 1e9 + 7;
 const double eps = 1e-6;
 const double pi = 1.00 * acos(-1.00);
 
+// vector<bool>vis;
+// vector<vector<int>>v;
 
+
+// void dfs(){
+
+// }
+
+vector<bool>vis;
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
+    int n;
+    cin >> n;
+    int temp;
+    vector<int>v1;
+    vector<pair<int,int>>vec;
+    for(int i = 0; i < n; i++){
+        cin >> temp;
+        v1.push_back(temp);
+    }
+    vis.assign(n,false);
+    // for every i where v[i] != v[j] push them into a matrix and mark all the vis ones and push them into vec
+    // if vis == false then no else print yes and all the vec elements
+    for(int i = 0; i < n; i++){
+        for(int j = i+1; j < n; j++){
+            if(v1[i] != v1[j] && vis[j] == false){
+                // v1[i].push_back(j);
+                vis[j] = true;
+                vec.push_back({i+1,j+1});
+            }
+        }
+    }
+    if(vec.size() == n-1){
+        cout << "YES" << endl;
+        for(auto i: vec){
+            cout << i.first << " " << i.second << endl;
+        }
     }
     else{
-
+        cout << "NO" << endl;
     }
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;
@@ -67,4 +96,4 @@ int main(){
     while(t--){
         solve();
     }
-}
+}   

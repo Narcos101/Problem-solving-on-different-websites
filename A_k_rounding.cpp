@@ -49,22 +49,17 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
-    }
-    else{
-
-    }
+    ll n,k;
+    cin >> n >> k;
+    // given n and k find the kth rounding of n that should be divisible by n which contains k zeroes.
+    // 1st approach- to consider the no of zeroes and multiply it till the end of the range(worst case)
+    // 2nd approach - to take into consideration the multiples of n and find out the zeroes attached to it
+    ll b = 1;
+    while(k--) b*= 10;
+    cout << lcm(n,b) << endl;
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;
-    int t;
-    cin >> t;
-    while(t--){
-        solve();
-    }
+    solve();
 }

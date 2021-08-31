@@ -49,16 +49,23 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
+    // cannot select the whole array, sort the array in ascending order in min no of steps 
+    int n;
+    // 6 5 4 3 2 1 
+    cin >> n;
+    vi v,s;
+    int a;
+    for(int i =0 ; i < n;i++){
+        cin >> a;
+        v.pb(a);
     }
-    else{
+    v = s;
+    sort(all(s));
+    int k = 0;
+    
 
-    }
+    
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;

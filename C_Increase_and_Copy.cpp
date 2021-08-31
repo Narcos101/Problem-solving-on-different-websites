@@ -49,16 +49,20 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
+    double n;
+    cin >> n;
+    int min =INT_MAX;
+    int x;
+    for(int i = 1; i <= sqrt(n); i++){
+        // 42
+        x = (i-1)+ ceil(n/i);
+        cout << x << " ";
+        if(x < min){
+            min = x;
+        }
     }
-    else{
-
-    }
+    cout << x-1 << endl;
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;

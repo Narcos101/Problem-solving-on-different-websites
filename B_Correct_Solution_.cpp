@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-
+//Pain of discipline is better than pain of regret
 #define pb push_back
 #define mp make_pair 
 #define fr first
@@ -36,10 +36,6 @@ T modpow(T base, T exp, T modulus){
     return result;
 }
 ll lcm(ll a, ll b) { return (a * (b / __gcd(a, b))); }
-//Repeat,Example,Approach,Code,Testcases,Optimize
-// int overflow, array bounds special cases (n=1?) 
-// do smth instead of nothing and stay organized 
-// WRITE STUFF DOWN DON'T GET STUCK ON ONE APPROACH
 
 // Some contants
 const int inf = 1e9 + 7;
@@ -49,22 +45,50 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
+    int n;
+    cin >> n;
+    int n1;
+    cin >> n1;
+    vector<int>v;
+    string ans;
+    while(n > 0){
+        int rem = n%10;
+        v.pb(rem);
+        n = n/10;
+    }
+    sort(v.begin(),v.end());
+    int count0 = 0;
+    for(auto i:v){
+        if(i == 0){
+            count0++;        
+        }
+        else{
+            break;
+        }
+    }
+    for(int i = count0;i < v.size(); i++){
+        if(i && count0 != 0){
+            ans += to_string(i);
+            for(int j = 0; j < count0; j++){
+                ans += '0';
+            }
+            count0 = 0;
+        }
+        else{
+            ans += to_string(i);
+        }
+    }
+    cout << ans << endl;
+    if(ans == to_string(n1)){
+        cout << "OK" << endl;
     }
     else{
-
+        cout << "WRONG_ANSWER" << endl;
     }
 }
 
-
 int main(){
-    ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;
-    int t;
-    cin >> t;
-    while(t--){
-        solve();
-    }
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);  
+    solve();
 }

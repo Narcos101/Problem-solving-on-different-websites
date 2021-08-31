@@ -45,20 +45,34 @@ ll lcm(ll a, ll b) { return (a * (b / __gcd(a, b))); }
 const int inf = 1e9 + 7;
 const double eps = 1e-6;
 const double pi = 1.00 * acos(-1.00);
-
+#define nline '\n'
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
-    }
-    else{
-
+    int n,k;
+    cin >> n >> k;
+    for(int i = 0; i < n; i++){
+        int temp;
+        cin >> temp;
+        if(temp >= k*10){
+            cout << "YES" << nline; 
+        }
+        else{
+            while(temp >= k){
+                if(temp % 10 == k){
+                    cout << "YES" << nline;
+                    break;
+                }
+                else{
+                    temp -= k;
+                }
+            }
+            if(temp < k){
+                cout << "NO" << nline;
+            }
+        }
     }
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;

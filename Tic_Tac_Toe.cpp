@@ -49,16 +49,17 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
+    int n,m,k;
+    cin >> n >> m >> k;
+    int x,y;
+    for(int i = 0; i < n*m; i++){
+        cin >> x >> y;
     }
-    else{
+    // (11 22 33 44), ()
 
-    }
+
+
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;

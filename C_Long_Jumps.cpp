@@ -41,7 +41,7 @@ ll lcm(ll a, ll b) { return (a * (b / __gcd(a, b))); }
 // do smth instead of nothing and stay organized 
 // WRITE STUFF DOWN DON'T GET STUCK ON ONE APPROACH
 
-// Some contants
+// Some constants
 const int inf = 1e9 + 7;
 const double eps = 1e-6;
 const double pi = 1.00 * acos(-1.00);
@@ -49,16 +49,27 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
+    int n;
+    cin >> n;
+    int temp;
+    vector<int>v;
+    ll dp[n];
+    for(int i = 0; i < n; i++){
+        cin >> temp;
+        v.pb(temp);
     }
-    else{
-
+    for(int i = n-1; i >= 0; i--){
+        dp[i] = v[i];
+        if(i + v[i]<= n-1){
+            dp[i] += dp[i+v[i]];
+        }
     }
+    ll maxx =INT_MIN;
+    for(auto i: dp){
+        maxx = max(i,maxx);
+    }
+    cout << maxx << endl;
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;

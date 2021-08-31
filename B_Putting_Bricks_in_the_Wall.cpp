@@ -49,16 +49,38 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
+    int n;
+    cin >> n;
+    // we dont care what digits he pick we want to block him completely at the start line or finish line
+    // lets pick finish line
+    char a[n][n];
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            cin >> a[i][j];
+        }
     }
-    else{
-
+    if(a[n-1][n-2] == a[1][0] && a[1][0] == a[0][1] && a[0][1] == a[n-2][n-1] && a[n-2][n-1] == a[n-1][n-2]){
+        cout << 2 << endl;
+        cout << 2 << " " << 1 << endl;
+        cout << 1 << " " << 2 << endl;
+    }
+    else if(a[n-1][n-2] != a[1][0] && a[1][0] == a[0][1] && a[0][1] != a[n-2][n-1] && a[n-2][n-1] == a[n-1][n-2]){
+        cout << 0 << endl;
+    }
+    else if(a[n-1][n-2] != a[1][0] && a[1][0] != a[0][1] && a[0][1] != a[n-2][n-1] && a[n-2][n-1] != a[n-1][n-2]){
+        cout << 2 << endl;
+        cout << 2 << " " << 1 << endl;
+        cout << n << " " << n-3 << endl; 
+    }
+    else if(a[n-1][n-2] == a[1][0] && a[1][0] == a[0][1] && a[0][1] != a[n-2][n-1] && a[n-2][n-1] != a[n-1][n-2]){
+        cout << 1 << endl;
+        cout << n << " " << n-1 << endl;
+    }
+    else if(a[n-1][n-2] != a[1][0] && a[1][0] == a[0][1] && a[0][1] == a[n-2][n-1] && a[n-2][n-1] != a[n-1][n-2]){
+        cout << 1 << endl;
+        cout << n-1 << " " << n << endl; 
     }
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;

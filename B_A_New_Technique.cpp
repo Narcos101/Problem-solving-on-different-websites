@@ -49,16 +49,40 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
+    int n,m;
+    cin >> n >> m;
+    int row[n*m + 1],col[n*m + 1];
+    int mat[n*m+1][n*m+1];
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            int a;
+            cin >> a;
+            col[a] = j;
+        }
     }
-    else{
-
+    for(int i = 0; i < m; i++){
+        for(int j = 0; j < n; j++){
+            int a;
+            cin >> a;
+            row[a] = j;
+        }
     }
+    for(int i = 1; i <= n*m ;i++){
+        mat[row[i]][col[i]] = i;
+    }
+    for(int i = 0; i < n; i++){
+        for(int j  =0; j < m; j++){
+            cout << mat[i][j] << " ";
+        }
+        cout << endl;
+    }
+    // col[6] = 0;     row[1] = 0; row[2] = 0 row[3] = 0
+    // col[5] = 1;     row[6] = 1; row[5] = 1 row[1] = 1;
+    // col[4] = 2;
+    // col[1] = 0;
+    // col[2] = 1;
+    // col[3] = 2;    
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;

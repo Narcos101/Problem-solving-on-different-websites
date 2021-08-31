@@ -49,22 +49,29 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
+    int n;
+    cin >> n;
+    int a[n];
+    vector<int>v;
+    int mini = INT_MAX;
+    for(int i =0; i < n; i++){
+        cin >> a[i];
+        mini = min(a[i],mini);
     }
-    else{
-
+    int minindex = -1;
+    for(int i = 0; i < n; i++){
+        if(mini == a[i]){
+            v.pb(i);
+        }    
     }
+    mini = INT_MAX;
+    for(int i = 1; i < v.size(); i++){
+        mini = min(mini,v[i]-v[i-1]);
+    }
+    cout << mini << endl;
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;
-    int t;
-    cin >> t;
-    while(t--){
-        solve();
-    }
+    solve();
 }

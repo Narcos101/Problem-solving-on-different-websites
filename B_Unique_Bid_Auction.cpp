@@ -49,16 +49,33 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
+    int n;
+    cin >> n;
+    int x;
+    vi v;
+    for(int i =0; i < n; i++){
+        cin >> x;
+        v.pb(x);
+    }
+    int index = -1;
+    int min = INT_MAX;
+    for(int i = 0; i < n;i++){
+        if(v[i] < min){
+            min = v[i];
+            index = i+1;
+        }
+        else if(v[i] == min){
+            min = INT_MAX;
+            index = -1;
+        }
+    }
+    if(min == INT_MAX){
+        cout << -1 << endl;
     }
     else{
-
+        cout << index << endl;
     }
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;
@@ -67,4 +84,4 @@ int main(){
     while(t--){
         solve();
     }
-}
+}   

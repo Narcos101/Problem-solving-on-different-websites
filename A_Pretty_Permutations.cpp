@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-
+//Pain of discipline is better than pain of regret
 #define pb push_back
 #define mp make_pair 
 #define fr first
@@ -36,10 +36,6 @@ T modpow(T base, T exp, T modulus){
     return result;
 }
 ll lcm(ll a, ll b) { return (a * (b / __gcd(a, b))); }
-//Repeat,Example,Approach,Code,Testcases,Optimize
-// int overflow, array bounds special cases (n=1?) 
-// do smth instead of nothing and stay organized 
-// WRITE STUFF DOWN DON'T GET STUCK ON ONE APPROACH
 
 // Some contants
 const int inf = 1e9 + 7;
@@ -49,19 +45,36 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
+    int n;
+    cin >> n;
+    vector<int>v(n+1);
+    for(int i = 1; i <= n; i++){
+        v.push_back(i);
+    } 
+    for(auto i: v){
+        cout << i << " ";
+    }
+    cout << endl;
+    if(n%2){
+        int temp;
+        temp = v[n];
+        v[n] = v[n-1];
+        v[n-1] = temp;
+        for(int i = 1; i <= n;i+=2){
+            cout << v[i+1] << " " << v[i] << " ";
+        }
     }
     else{
-
+        for(int i = 1; i <= n;i+=2){
+            cout << v[i+1] << " " << v[i] << " ";
+        }
     }
+    cout << endl;
 }
 
-
 int main(){
-    ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);  
     int t;
     cin >> t;
     while(t--){

@@ -49,17 +49,58 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
+    int n;
+    cin >> n;
+    int temp;
+    int c1 = 0;
+    int c2 = 0;
+    for(int i = 0; i < n; i++){
+        cin >> temp;
+        if(temp == 1){
+            c1 ++;
+        }
+        else{
+            c2 ++;
+        }
     }
-    else{
-
+    if(n == 1 || ){
+        cout << "NO" << endl;
+        return;
     }
+    if(c1 == 0){
+        if(c2 % 2 == 0){
+            cout << "YES" << endl;
+            return;
+        }
+        else{
+            cout << "NO" << endl;
+            return;
+        }
+    }
+    if(c2 == 0){
+        if(c1 % 2 == 0){
+            cout << "YES" << endl;
+            return;
+        }
+        else{
+            cout << "NO" << endl;
+            return;
+        }
+    }
+    if(c2){
+        if(c1 == 2*c2){
+            cout << "YES" << endl;
+            return;
+        }
+        else{
+            cout << "NO" << endl;
+            return;
+        }
+    }
+    
 }
-
-
+// 2 1 2 
+// 1 1 1 1 2 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;
     int t;

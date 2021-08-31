@@ -49,16 +49,26 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
+    ll n,k;
+    cin >> n >> k;
+    vector<ll>v,v1;
+    ll sum = 0;
+    for(int i = 0; i < n; i++){
+        int temp;
+        cin >> temp;
+        v.pb(temp);
+        sum += temp;
     }
-    else{
-
+    v1 = v;
+    int i = 0;
+    while(v[i] % k == 0){
+        sum += v1[i];
+        v[i]/=k;
+        i = (i+1)%n;
+        cout << v[i] << " ";
     }
+    cout << sum << endl;
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;

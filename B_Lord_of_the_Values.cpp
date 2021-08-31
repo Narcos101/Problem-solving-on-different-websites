@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-
+//Repeat,Example,Approach,Code,Testcases,Optimize
 #define pb push_back
 #define mp make_pair 
 #define fr first
@@ -36,10 +36,6 @@ T modpow(T base, T exp, T modulus){
     return result;
 }
 ll lcm(ll a, ll b) { return (a * (b / __gcd(a, b))); }
-//Repeat,Example,Approach,Code,Testcases,Optimize
-// int overflow, array bounds special cases (n=1?) 
-// do smth instead of nothing and stay organized 
-// WRITE STUFF DOWN DON'T GET STUCK ON ONE APPROACH
 
 // Some contants
 const int inf = 1e9 + 7;
@@ -49,16 +45,22 @@ const double pi = 1.00 * acos(-1.00);
 
 
 void solve(){
-    int r,c;
-    cin >> r >> c;
-    if(r > c){
-        
-    }
-    else{
-
+    int n;
+    cin >> n;
+    int temp;
+    vector<int>v;
+    vector<int>ans;
+    for(int i = 0; i < n; i++){
+        cin >> temp;
+        v.pb(temp);
+    }    
+    int k;
+    vector<pair<int,pair<int,int>>>ans;
+    for(int i = 0; i < n; i++){
+        //1 8 10
+        //
     }
 }
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(NULL) ;
