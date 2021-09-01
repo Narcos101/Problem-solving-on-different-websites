@@ -45,57 +45,54 @@ typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
 
-int semprime[1001];
-
-bool isprime(int n)
+bool palindrome(int num)
 {
+    int rev = 0, val;
+    val = num;
+    while (num > 0)
+    {
+        rev = rev * 10 + num % 10;
+        num = num / 10;
+    }
+    if (val == rev)
+        return true;
+    else{
+        return false;
+    }
+}
+
+void sieve12(int n)
+{
+    int Primes[n + 1];
+    memset(Primes, 1, sizeof(Primes));
+    cout << "YO" << endl;
+    Primes[0] = 0;
+    Primes[1] = 0;
     for (int i = 2; i <= sqrt(n); i++)
     {
-        if (n % i == 0)
+        if (Primes[i] == 1)
         {
-            return false;
+            for (int j = i; i * j <= n; j++)
+            {
+                Primes[i * j] = 0;
+            }
         }
     }
-    return true;
+    for (int i = 2; i <= n; i++)
+    {
+        if (Primes[i] == 1)
+        {
+            cout << i << endl;
+        }
+    }
 }
 
 int main()
 {
-    for (int i = 2; i <= 1000; i++)
-    {
-        for (int j = i + 1; i * j <= 1000; j++)
-        {
-            if (isprime(i) && isprime(j))
-            {
-                semprime[i * j] = 1;
-            }
-        }
-    }
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
-    cin >> t;
-    int flag = 0;
-    while (t--)
-    {
-        int n;
-        cin >> n;
-        for (int i = 2; i < n; i++)
-        {
-            int x = n - i;
-            if (semprime[i] && semprime[x])
-            {
-                flag = 1;
-                break;
-            }
-        }
-        if (flag == 1)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
-    }
+    cout.tie(NULL);
+    int n;
+    cin >> n;
+    sieve12(n);
 }

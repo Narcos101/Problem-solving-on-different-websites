@@ -44,58 +44,52 @@ typedef long long ll;
 typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
-
-int semprime[1001];
-
-bool isprime(int n)
-{
-    for (int i = 2; i <= sqrt(n); i++)
-    {
-        if (n % i == 0)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main()
 {
-    for (int i = 2; i <= 1000; i++)
-    {
-        for (int j = i + 1; i * j <= 1000; j++)
-        {
-            if (isprime(i) && isprime(j))
-            {
-                semprime[i * j] = 1;
-            }
-        }
-    }
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t;
     cin >> t;
-    int flag = 0;
     while (t--)
     {
-        int n;
-        cin >> n;
-        for (int i = 2; i < n; i++)
+        int n, k;
+        cin >> n >> k;
+        int a[n];
+        for0(i, n)
         {
-            int x = n - i;
-            if (semprime[i] && semprime[x])
+            cin >> a[i];
+        }
+        int freq[];
+        int count = 0;
+        k = k -1;
+        int j = 0;
+        int diff = 0;
+        int max1 = -1;
+        int result;
+        for0(i, n)
+        {
+            freq[a[i]]++;
+            if (freq[a[i]] == 1)
             {
-                flag = 1;
-                break;
+                diff++;
             }
+            while (diff > k)
+            {
+                freq[a[j]]--;
+                if (freq[a[j]] == 0)
+                {
+                    diff--;
+                }
+
+                j = j + 1;
+            }
+            result = i - j + 1;
+            if (result > max1)
+            {
+                max1 = result;
+            }
+            
         }
-        if (flag == 1)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
+        cout << max1 << endl;
     }
 }

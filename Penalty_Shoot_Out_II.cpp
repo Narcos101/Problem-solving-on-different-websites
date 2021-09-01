@@ -1,18 +1,18 @@
 /*
-	⣠⣶⡾⠏⠉⠙⠳⢦⡀⠀⠀⠀⢠⠞⠉⠙⠲⡀⠀
-	⠀⠀⠀⣴⠿⠏⠀⠀⠀⠀⠀⠀⢳⡀⠀⡏⠀⠀⠀⠀⠀⢷
-	⠀⠀⢠⣟⣋⡀⢀⣀⣀⡀⠀⣀⡀⣧⠀⢸⠀⠀⠀⠀⠀ ⡇
-	⠀⠀⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲⣿⠀⣸⠀⠀EZ⠀ ⡇
-	⠀⠀⣟⣿⡭⠀⠀⠀⠀⠀⢱⠀⠀⣿⠀⢹⠀⠀⠀⠀⠀ ⡇
-	⠀⠀⠙⢿⣯⠄⠀⠀⠀⢀⡀⠀⠀⡿⠀⠀⡇⠀⠀⠀⠀⡼
-	⠀⠀⠀⠀⠹⣶⠆⠀⠀⠀⠀⠀⡴⠃⠀⠀⠘⠤⣄⣠⠞⠀
-	⠀⠀⠀⠀⠀⢸⣷⡦⢤⡤⢤⣞⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-	⠀⠀⢀⣤⣴⣿⣏⠁⠀⠀⠸⣏⢯⣷⣖⣦⡀⠀⠀⠀⠀⠀⠀
-	⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿⠀⠀⠀⠀⠀⠀
-	⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏⠀⠀⠀⣄⢸⠀⠀⠀⠀⠀⠀
-	⣿⣿⣧⣀⣿………⣀⣰⣏⣘⣆⣀
-	⠀⠀
-	*/
+⣠⣶⡾⠏⠉⠙⠳⢦⡀⠀⠀⠀⢠⠞⠉⠙⠲⡀⠀
+⠀⠀⠀⣴⠿⠏⠀⠀⠀⠀⠀⠀⢳⡀⠀⡏⠀⠀⠀⠀⠀⢷
+⠀⠀⢠⣟⣋⡀⢀⣀⣀⡀⠀⣀⡀⣧⠀⢸⠀⠀⠀⠀⠀ ⡇
+⠀⠀⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲⣿⠀⣸⠀⠀EZ⠀ ⡇
+⠀⠀⣟⣿⡭⠀⠀⠀⠀⠀⢱⠀⠀⣿⠀⢹⠀⠀⠀⠀⠀ ⡇
+⠀⠀⠙⢿⣯⠄⠀⠀⠀⢀⡀⠀⠀⡿⠀⠀⡇⠀⠀⠀⠀⡼
+⠀⠀⠀⠀⠹⣶⠆⠀⠀⠀⠀⠀⡴⠃⠀⠀⠘⠤⣄⣠⠞⠀
+⠀⠀⠀⠀⠀⢸⣷⡦⢤⡤⢤⣞⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢀⣤⣴⣿⣏⠁⠀⠀⠸⣏⢯⣷⣖⣦⡀⠀⠀⠀⠀⠀⠀
+⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿⠀⠀⠀⠀⠀⠀
+⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏⠀⠀⠀⣄⢸⠀⠀⠀⠀⠀⠀
+⣿⣿⣧⣀⣿………⣀⣰⣏⣘⣆⣀
+⠀⠀
+*/
 #include <bits/stdc++.h>                                         // This will work only for g++ compiler.
 #define for0(i, n) for (int i = 0; i < (int)(n); ++i)            // 0 based indexing
 #define for1(i, n) for (int i = 1; i <= (int)(n); ++i)           // 1 based indexing
@@ -44,58 +44,38 @@ typedef long long ll;
 typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
-
-int semprime[1001];
-
-bool isprime(int n)
-{
-    for (int i = 2; i <= sqrt(n); i++)
-    {
-        if (n % i == 0)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main()
 {
-    for (int i = 2; i <= 1000; i++)
-    {
-        for (int j = i + 1; i * j <= 1000; j++)
-        {
-            if (isprime(i) && isprime(j))
-            {
-                semprime[i * j] = 1;
-            }
-        }
-    }
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t;
     cin >> t;
-    int flag = 0;
     while (t--)
     {
-        int n;
+        int n,count = 0,count1= 0;
+        int i,t1,t2;
         cin >> n;
-        for (int i = 2; i < n; i++)
-        {
-            int x = n - i;
-            if (semprime[i] && semprime[x])
-            {
-                flag = 1;
-                break;
+        string s;
+        cin >> s;
+        int count2 = n;
+        int count3 = n;
+        for(i = 0; i< 2*n; i++){
+            if(i%2 == 1){
+                if(s[i] == 1){
+                    count ++;
+                }
+                count1 --;    
             }
-        }
-        if (flag == 1)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
+            else{
+                if(s[i] == 1){
+                    count2 ++;
+                }
+                count3 --;
+            }
+            if((count > count2) && ((count-count2) > count1){
+                cout << (i+1) << endl;
+            }
+            else if()
         }
     }
 }

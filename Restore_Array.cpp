@@ -1,18 +1,18 @@
 /*
-	⣠⣶⡾⠏⠉⠙⠳⢦⡀⠀⠀⠀⢠⠞⠉⠙⠲⡀⠀
-	⠀⠀⠀⣴⠿⠏⠀⠀⠀⠀⠀⠀⢳⡀⠀⡏⠀⠀⠀⠀⠀⢷
-	⠀⠀⢠⣟⣋⡀⢀⣀⣀⡀⠀⣀⡀⣧⠀⢸⠀⠀⠀⠀⠀ ⡇
-	⠀⠀⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲⣿⠀⣸⠀⠀EZ⠀ ⡇
-	⠀⠀⣟⣿⡭⠀⠀⠀⠀⠀⢱⠀⠀⣿⠀⢹⠀⠀⠀⠀⠀ ⡇
-	⠀⠀⠙⢿⣯⠄⠀⠀⠀⢀⡀⠀⠀⡿⠀⠀⡇⠀⠀⠀⠀⡼
-	⠀⠀⠀⠀⠹⣶⠆⠀⠀⠀⠀⠀⡴⠃⠀⠀⠘⠤⣄⣠⠞⠀
-	⠀⠀⠀⠀⠀⢸⣷⡦⢤⡤⢤⣞⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-	⠀⠀⢀⣤⣴⣿⣏⠁⠀⠀⠸⣏⢯⣷⣖⣦⡀⠀⠀⠀⠀⠀⠀
-	⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿⠀⠀⠀⠀⠀⠀
-	⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏⠀⠀⠀⣄⢸⠀⠀⠀⠀⠀⠀
-	⣿⣿⣧⣀⣿………⣀⣰⣏⣘⣆⣀
-	⠀⠀
-	*/
+⣠⣶⡾⠏⠉⠙⠳⢦⡀⠀⠀⠀⢠⠞⠉⠙⠲⡀⠀
+⠀⠀⠀⣴⠿⠏⠀⠀⠀⠀⠀⠀⢳⡀⠀⡏⠀⠀⠀⠀⠀⢷
+⠀⠀⢠⣟⣋⡀⢀⣀⣀⡀⠀⣀⡀⣧⠀⢸⠀⠀⠀⠀⠀ ⡇
+⠀⠀⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲⣿⠀⣸⠀⠀EZ⠀ ⡇
+⠀⠀⣟⣿⡭⠀⠀⠀⠀⠀⢱⠀⠀⣿⠀⢹⠀⠀⠀⠀⠀ ⡇
+⠀⠀⠙⢿⣯⠄⠀⠀⠀⢀⡀⠀⠀⡿⠀⠀⡇⠀⠀⠀⠀⡼
+⠀⠀⠀⠀⠹⣶⠆⠀⠀⠀⠀⠀⡴⠃⠀⠀⠘⠤⣄⣠⠞⠀
+⠀⠀⠀⠀⠀⢸⣷⡦⢤⡤⢤⣞⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢀⣤⣴⣿⣏⠁⠀⠀⠸⣏⢯⣷⣖⣦⡀⠀⠀⠀⠀⠀⠀
+⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿⠀⠀⠀⠀⠀⠀
+⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏⠀⠀⠀⣄⢸⠀⠀⠀⠀⠀⠀
+⣿⣿⣧⣀⣿………⣀⣰⣏⣘⣆⣀
+⠀⠀
+*/
 #include <bits/stdc++.h>                                         // This will work only for g++ compiler.
 #define for0(i, n) for (int i = 0; i < (int)(n); ++i)            // 0 based indexing
 #define for1(i, n) for (int i = 1; i <= (int)(n); ++i)           // 1 based indexing
@@ -44,58 +44,32 @@ typedef long long ll;
 typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
-
-int semprime[1001];
-
-bool isprime(int n)
-{
-    for (int i = 2; i <= sqrt(n); i++)
-    {
-        if (n % i == 0)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main()
 {
-    for (int i = 2; i <= 1000; i++)
-    {
-        for (int j = i + 1; i * j <= 1000; j++)
-        {
-            if (isprime(i) && isprime(j))
-            {
-                semprime[i * j] = 1;
-            }
-        }
-    }
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
-    cin >> t;
-    int flag = 0;
-    while (t--)
+    ll n, q,diff,l,r,I;
+    cin >> n >> q;
+    ll a[n];
+    for0(i, n)
     {
-        int n;
-        cin >> n;
-        for (int i = 2; i < n; i++)
-        {
-            int x = n - i;
-            if (semprime[i] && semprime[x])
-            {
-                flag = 1;
-                break;
-            }
+        cin >> a[i];
+    }
+    // sort(a,a+n);
+    ll sum = a[0];
+    for (int i = 1; i < n; i++)
+    {
+        diff = a[i] - sum;
+        a[i] = diff;
+        sum += a[i];
+    }
+    while(q--){
+        cin >> l >> r >> I;
+        for(int i = l-1; i < r; i++){
+            a[i] = a[i] - I;
         }
-        if (flag == 1)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
+    }
+    for0(i,n){
+        cout << a[i] << " ";
     }
 }

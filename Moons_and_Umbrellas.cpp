@@ -45,57 +45,70 @@ typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
 
-int semprime[1001];
-
-bool isprime(int n)
+int solve()
 {
-    for (int i = 2; i <= sqrt(n); i++)
+    string s;
+    int x;
+    int y;
+    cin >> x >> y >> s;
+    int n = s.size();
+    bool done = false;
+    for (int i = 0; i < n; i++)
     {
-        if (n % i == 0)
+        if (s[i] == '?')
         {
-            return false;
+            if (i == 0)
+            {
+                for (int j = i; j < n; j++)
+                {
+                    if (s[j] != '?')
+                    {
+                        s[i] = s[j];
+                        done = true;
+                        break;
+                    }
+                }
+                if (!done)
+                {
+                    s[i] = 'C';
+                }
+            }
+            else
+            {
+                if (s[i - 1] != '?')
+                {
+                    s[i] = s[i - 1];
+                }
+            }
         }
     }
-    return true;
+    int ans = 0;
+    // cout << s << endl;
+    for (int i = 0; i < n; i++)
+    {
+        if (s[i] == 'C' && s[i + 1] == 'J')
+        {
+            ans += x;
+        }
+        else if (s[i] == 'J' && s[i + 1] == 'C')
+        {
+            ans += y;
+        }
+        else
+        {
+            continue;
+        }
+    }
+    return ans;
 }
 
 int main()
 {
-    for (int i = 2; i <= 1000; i++)
-    {
-        for (int j = i + 1; i * j <= 1000; j++)
-        {
-            if (isprime(i) && isprime(j))
-            {
-                semprime[i * j] = 1;
-            }
-        }
-    }
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
     int t;
     cin >> t;
-    int flag = 0;
-    while (t--)
+    for (int i = 1; i <= t; i++)
     {
-        int n;
-        cin >> n;
-        for (int i = 2; i < n; i++)
-        {
-            int x = n - i;
-            if (semprime[i] && semprime[x])
-            {
-                flag = 1;
-                break;
-            }
-        }
-        if (flag == 1)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
+        cout << "Case"
+             << " #" << i << ": " << solve() << endl;
     }
 }

@@ -44,58 +44,52 @@ typedef long long ll;
 typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
-
-int semprime[1001];
-
-bool isprime(int n)
-{
-    for (int i = 2; i <= sqrt(n); i++)
-    {
-        if (n % i == 0)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main()
 {
-    for (int i = 2; i <= 1000; i++)
-    {
-        for (int j = i + 1; i * j <= 1000; j++)
-        {
-            if (isprime(i) && isprime(j))
-            {
-                semprime[i * j] = 1;
-            }
-        }
-    }
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t;
     cin >> t;
-    int flag = 0;
     while (t--)
     {
-        int n;
-        cin >> n;
-        for (int i = 2; i < n; i++)
+        string s;
+        cin >> s;
+        int j;
+        int temp = 0;
+        int count = 0;
+        stack<char> st;
+        for0(i, s.size())
         {
-            int x = n - i;
-            if (semprime[i] && semprime[x])
+            // if (st.size() == 0)
+            // {
+            //     temp += count;
+            //     count = 0;
+            // }
+            if (s[i] == '<')
             {
-                flag = 1;
-                break;
+                st.push(s[i]);
+            }
+            else
+            {
+                if (st.empty())
+                {
+                    break;
+                }
+                else
+                {
+                    if (st.top() == '<')
+                    {
+                        count += 2;
+                        st.pop();
+                    }
+                }
             }
         }
-        if (flag == 1)
+        if (st.size() == 0)
         {
-            cout << "YES" << endl;
+            temp += count;
         }
-        else
-        {
-            cout << "NO" << endl;
-        }
+        cout << temp << endl;
     }
+    return 0;
 }

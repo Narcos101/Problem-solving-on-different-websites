@@ -1,18 +1,9 @@
-/*
-	⣠⣶⡾⠏⠉⠙⠳⢦⡀⠀⠀⠀⢠⠞⠉⠙⠲⡀⠀
-	⠀⠀⠀⣴⠿⠏⠀⠀⠀⠀⠀⠀⢳⡀⠀⡏⠀⠀⠀⠀⠀⢷
-	⠀⠀⢠⣟⣋⡀⢀⣀⣀⡀⠀⣀⡀⣧⠀⢸⠀⠀⠀⠀⠀ ⡇
-	⠀⠀⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲⣿⠀⣸⠀⠀EZ⠀ ⡇
-	⠀⠀⣟⣿⡭⠀⠀⠀⠀⠀⢱⠀⠀⣿⠀⢹⠀⠀⠀⠀⠀ ⡇
-	⠀⠀⠙⢿⣯⠄⠀⠀⠀⢀⡀⠀⠀⡿⠀⠀⡇⠀⠀⠀⠀⡼
-	⠀⠀⠀⠀⠹⣶⠆⠀⠀⠀⠀⠀⡴⠃⠀⠀⠘⠤⣄⣠⠞⠀
-	⠀⠀⠀⠀⠀⢸⣷⡦⢤⡤⢤⣞⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-	⠀⠀⢀⣤⣴⣿⣏⠁⠀⠀⠸⣏⢯⣷⣖⣦⡀⠀⠀⠀⠀⠀⠀
-	⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿⠀⠀⠀⠀⠀⠀
-	⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏⠀⠀⠀⣄⢸⠀⠀⠀⠀⠀⠀
-	⣿⣿⣧⣀⣿………⣀⣰⣏⣘⣆⣀
-	⠀⠀
-	*/
+//Work hard
+//dont let other peoples success demotivate you
+//Dont compromise You deserve Better!!!
+//A problem a day keeps unemployment away
+//if you won't someone else will!!!
+//Do every work wholeheartedly(bus feels like a sauna)
 #include <bits/stdc++.h>                                         // This will work only for g++ compiler.
 #define for0(i, n) for (int i = 0; i < (int)(n); ++i)            // 0 based indexing
 #define for1(i, n) for (int i = 1; i <= (int)(n); ++i)           // 1 based indexing
@@ -45,57 +36,28 @@ typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
 
-int semprime[1001];
-
-bool isprime(int n)
-{
-    for (int i = 2; i <= sqrt(n); i++)
-    {
-        if (n % i == 0)
-        {
-            return false;
-        }
-    }
-    return true;
+int fact(int n){
+    return (n == 0 || n== 1)?1:n*fact(n-1);
 }
+
+
+int comb(int n,int r){
+    int facto = fact(n);
+    int combo = facto/fact(r)*fact(n-r);
+    return combo;
+}
+
+
+
+
+
 
 int main()
 {
-    for (int i = 2; i <= 1000; i++)
-    {
-        for (int j = i + 1; i * j <= 1000; j++)
-        {
-            if (isprime(i) && isprime(j))
-            {
-                semprime[i * j] = 1;
-            }
-        }
-    }
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
-    cin >> t;
-    int flag = 0;
-    while (t--)
-    {
-        int n;
-        cin >> n;
-        for (int i = 2; i < n; i++)
-        {
-            int x = n - i;
-            if (semprime[i] && semprime[x])
-            {
-                flag = 1;
-                break;
-            }
-        }
-        if (flag == 1)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
-    }
+    int n;
+    cin >> n;
+    int r = 11;
+    cout << comb(n,r) << endl;
 }

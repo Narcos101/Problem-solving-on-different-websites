@@ -45,57 +45,45 @@ typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
 
-int semprime[1001];
-
-bool isprime(int n)
+int solve(int n)
 {
-    for (int i = 2; i <= sqrt(n); i++)
+    vector<int> v;
+    for (int i = 0; i < n; i++)
     {
-        if (n % i == 0)
-        {
-            return false;
-        }
+        int temp;
+        cin >> temp;
+        v.pb(temp);
     }
-    return true;
+    int ans = 0;
+    for (int i = 0; i < n - 1; i++)
+    {
+        int mini = 1e7 + 9;
+        int index = 0;
+        for (int j = i; j < n; j++)
+        {
+            // cout << v[j] << endl;
+            if (v[j] < mini)
+            {
+                mini = v[j];
+                index = j;
+            }
+        }
+        // cout << index << " ";
+        ans = ans + index - i + 1;
+        reverse(v.begin() + i, v.begin() + index + 1);
+    }
+    return ans;
 }
 
 int main()
 {
-    for (int i = 2; i <= 1000; i++)
-    {
-        for (int j = i + 1; i * j <= 1000; j++)
-        {
-            if (isprime(i) && isprime(j))
-            {
-                semprime[i * j] = 1;
-            }
-        }
-    }
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
     int t;
     cin >> t;
-    int flag = 0;
-    while (t--)
+    for (int i = 1; i <= t; i++)
     {
         int n;
         cin >> n;
-        for (int i = 2; i < n; i++)
-        {
-            int x = n - i;
-            if (semprime[i] && semprime[x])
-            {
-                flag = 1;
-                break;
-            }
-        }
-        if (flag == 1)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
+        cout << "Case"
+             << " #" << i << ": " << solve(n) << endl;
     }
 }

@@ -44,58 +44,26 @@ typedef long long ll;
 typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
-
-int semprime[1001];
-
-bool isprime(int n)
-{
-    for (int i = 2; i <= sqrt(n); i++)
-    {
-        if (n % i == 0)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main()
 {
-    for (int i = 2; i <= 1000; i++)
-    {
-        for (int j = i + 1; i * j <= 1000; j++)
-        {
-            if (isprime(i) && isprime(j))
-            {
-                semprime[i * j] = 1;
-            }
-        }
-    }
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
-    cin >> t;
-    int flag = 0;
-    while (t--)
+    cout.tie(NULL);
+    string s1;
+    string s2;
+    cin >> s1;
+    cin >> s2;
+    string ans = " ";
+    for (int i = 0; i < s1.size(); i++)
     {
-        int n;
-        cin >> n;
-        for (int i = 2; i < n; i++)
+        if (s1[i] == s2[i])
         {
-            int x = n - i;
-            if (semprime[i] && semprime[x])
-            {
-                flag = 1;
-                break;
-            }
-        }
-        if (flag == 1)
-        {
-            cout << "YES" << endl;
+            ans += "0";
         }
         else
         {
-            cout << "NO" << endl;
+            ans += "1";
         }
     }
+    cout << ans << endl;
 }

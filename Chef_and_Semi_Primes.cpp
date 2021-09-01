@@ -45,57 +45,65 @@ typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
 
-int semprime[1001];
-
-bool isprime(int n)
+void sieve(int n)
 {
+    int Primes[n + 1];
+    for (int i = 0; i <= n; i++)
+    {
+        Primes[i] = 1;
+    }
+    Primes[0] = 0;
+    Primes[1] = 0;
     for (int i = 2; i <= sqrt(n); i++)
     {
-        if (n % i == 0)
+        if (Primes[i] == 1)
         {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main()
-{
-    for (int i = 2; i <= 1000; i++)
-    {
-        for (int j = i + 1; i * j <= 1000; j++)
-        {
-            if (isprime(i) && isprime(j))
+            for (int j = i; i * j <= n; j++)
             {
-                semprime[i * j] = 1;
+                Primes[i * j] = 0;
             }
         }
     }
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    int t;
-    cin >> t;
+    int c = 0, d = 0;
     int flag = 0;
-    while (t--)
+    for (int i = 2; i <= n; i++)
     {
-        int n;
-        cin >> n;
-        for (int i = 2; i < n; i++)
+        if (Primes[i] == 1)
         {
-            int x = n - i;
-            if (semprime[i] && semprime[x])
+            c = i;
+            // cout << c << endl;
+            for (int j = i + 1; j <= n; j++)
             {
-                flag = 1;
-                break;
+                if (Primes[j] == 1)
+                {
+                    d = j;
+                }
+                cout << d << endl;
+                if (c * d == n)
+                {
+                    // cout << c << " " << d << endl;
+                    flag = 1;
+                    break;
+                }
             }
         }
         if (flag == 1)
         {
-            cout << "YES" << endl;
+            break;
         }
-        else
-        {
-            cout << "NO" << endl;
-        }
+    }
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n;
+        cin >> n;
+        sieve(n);
     }
 }

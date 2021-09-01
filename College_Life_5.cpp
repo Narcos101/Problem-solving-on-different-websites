@@ -13,12 +13,12 @@
 	⣿⣿⣧⣀⣿………⣀⣰⣏⣘⣆⣀
 	⠀⠀
 	*/
-#include <bits/stdc++.h>                                         // This will work only for g++ compiler.
-#define for0(i, n) for (int i = 0; i < (int)(n); ++i)            // 0 based indexing
-#define for1(i, n) for (int i = 1; i <= (int)(n); ++i)           // 1 based indexing
+#include <bits/stdc++.h>										 // This will work only for g++ compiler.
+#define for0(i, n) for (int i = 0; i < (int)(n); ++i)			 // 0 based indexing
+#define for1(i, n) for (int i = 1; i <= (int)(n); ++i)			 // 1 based indexing
 #define forc(i, l, r) for (int i = (int)(l); i <= (int)(r); ++i) // closed interver from l to r r inclusive
-#define forr0(i, n) for (int i = (int)(n)-1; i >= 0; --i)        // reverse 0 based.
-#define forr1(i, n) for (int i = (int)(n); i >= 1; --i)          // reverse 1 based
+#define forr0(i, n) for (int i = (int)(n)-1; i >= 0; --i)		 // reverse 0 based.
+#define forr1(i, n) for (int i = (int)(n); i >= 1; --i)			 // reverse 1 based
 //short hand for usual tokens
 #define pb push_back
 #define fi first
@@ -44,58 +44,35 @@ typedef long long ll;
 typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
-
-int semprime[1001];
-
-bool isprime(int n)
-{
-    for (int i = 2; i <= sqrt(n); i++)
-    {
-        if (n % i == 0)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
+#define bruh 
 int main()
 {
-    for (int i = 2; i <= 1000; i++)
-    {
-        for (int j = i + 1; i * j <= 1000; j++)
-        {
-            if (isprime(i) && isprime(j))
-            {
-                semprime[i * j] = 1;
-            }
-        }
-    }
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    int t;
-    cin >> t;
-    int flag = 0;
-    while (t--)
-    {
-        int n;
-        cin >> n;
-        for (int i = 2; i < n; i++)
-        {
-            int x = n - i;
-            if (semprime[i] && semprime[x])
-            {
-                flag = 1;
-                break;
-            }
-        }
-        if (flag == 1)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
-    }
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	int t;
+	cin >> t;
+	while (t--)
+	{
+		ll n, m, temp;
+		cin >> n >> m;
+		vector<pair<int, int>> v;
+		while(n--)
+		{
+			cin >> temp;
+			v.push_back({temp, 0});
+		}
+		while(m--)
+		{
+			cin >> temp;
+			v.push_back({temp, 1});
+		}
+		sort(v.begin(), v.end());
+		ll curr = 0, ans = 0;
+		for (auto time : v)
+		{
+			cout << time;
+		}
+		// cout << ans << endl;
+	}
+	return 0;
 }

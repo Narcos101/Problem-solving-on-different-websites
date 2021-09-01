@@ -44,58 +44,45 @@ typedef long long ll;
 typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
-
-int semprime[1001];
-
-bool isprime(int n)
-{
-    for (int i = 2; i <= sqrt(n); i++)
-    {
-        if (n % i == 0)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main()
 {
-    for (int i = 2; i <= 1000; i++)
-    {
-        for (int j = i + 1; i * j <= 1000; j++)
-        {
-            if (isprime(i) && isprime(j))
-            {
-                semprime[i * j] = 1;
-            }
-        }
-    }
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t;
+    int count = 0;
     cin >> t;
-    int flag = 0;
     while (t--)
     {
-        int n;
-        cin >> n;
-        for (int i = 2; i < n; i++)
+        int n, k;
+        cin >> n >> k;
+        // int flag = 1;
+        int count = 0;
+        int temp;
+        priority_queue<int> q;
+        for0(i, n)
         {
-            int x = n - i;
-            if (semprime[i] && semprime[x])
+            cin >> temp;
+            q.push(temp);
+        }
+        bool flag = true;
+        while(k > 0)
+        {
+            int num = q.top();
+            if (q.top() == 0)
             {
-                flag = 1;
-                break;
+                cout << "Evacuate";
+                flag = false;
+                return 0;
+
             }
+            k -= num;
+            q.pop();
+            q.push(num / 2);
+            count++;
         }
-        if (flag == 1)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
+        if(flag == true){
+            cout << count << endl;
         }
     }
+    return 0;
 }
