@@ -50,8 +50,23 @@ int main()
     cin.tie(NULL);
     int t;
     cin >> t;
+    int min = INT_MAX;
+    bool found = false;
     while (t--)
     {
-            
+        int a,b,c;
+        cin >> a >> b >> c;
+        if(c-a > 0){
+            if(b < min){
+                found = true;
+                min = b;
+            }
+        }
+    }
+    if(found){
+        cout << min << endl;
+    }
+    else{
+        cout << -1 << endl;
     }
 }

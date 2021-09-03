@@ -1,18 +1,9 @@
-/*
-		⣠⣶⡾⠏⠉⠙⠳⢦⡀⠀⠀⠀⢠⠞⠉⠙⠲⡀⠀
-		⠀⠀⠀⣴⠿⠏⠀⠀⠀⠀⠀⠀⢳⡀⠀⡏⠀⠀⠀⠀⠀⢷
-		⠀⠀⢠⣟⣋⡀⢀⣀⣀⡀⠀⣀⡀⣧⠀⢸⠀⠀⠀⠀⠀ ⡇
-		⠀⠀⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲⣿⠀⣸⠀⠀EZ⠀ ⡇
-		⠀⠀⣟⣿⡭⠀⠀⠀⠀⠀⢱⠀⠀⣿⠀⢹⠀⠀⠀⠀⠀ ⡇
-		⠀⠀⠙⢿⣯⠄⠀⠀⠀⢀⡀⠀⠀⡿⠀⠀⡇⠀⠀⠀⠀⡼
-		⠀⠀⠀⠀⠹⣶⠆⠀⠀⠀⠀⠀⡴⠃⠀⠀⠘⠤⣄⣠⠞⠀
-		⠀⠀⠀⠀⠀⢸⣷⡦⢤⡤⢤⣞⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-		⠀⠀⢀⣤⣴⣿⣏⠁⠀⠀⠸⣏⢯⣷⣖⣦⡀⠀⠀⠀⠀⠀⠀
-		⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿⠀⠀⠀⠀⠀⠀
-		⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏⠀⠀⠀⣄⢸⠀⠀⠀⠀⠀⠀
-		⣿⣿⣧⣀⣿………⣀⣰⣏⣘⣆⣀
-		⠀⠀
-		*/
+//Work hard
+//dont let other peoples success demotivate you
+//Dont compromise You deserve Better!!!
+//A problem a day keeps unemployment away
+//if you won't someone else will!!!
+//Do every work wholeheartedly(bus feels like a sauna)
 #include <bits/stdc++.h>                                         // This will work only for g++ compiler.
 #define for0(i, n) for (int i = 0; i < (int)(n); ++i)            // 0 based indexing
 #define for1(i, n) for (int i = 1; i <= (int)(n); ++i)           // 1 based indexing
@@ -48,10 +39,47 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
-    cin >> t;
-    while (t--)
+    int n;
+    cin >> n;
+    vector<int> v;
+    int maxi = INT_MIN;
+    int index = 0;
+    int maxi2 = INT_MIN;
+    int index2 = 0;
+    // cout << pow(2,n) << endl;
+    for (int i = 0; i < pow(2, n); i++)
     {
-            
+        int temp;
+        cin >> temp;
+        v.push_back(temp);
     }
+    int half = pow(2, n) / 2;
+    for (int i = 0; i < half; i++)
+    {
+        if (maxi < v[i])
+        {
+            maxi = v[i];
+            index = i + 1;
+        }
+    }
+    for (int i = (1 << n) / 2; i < (1 << n); i++)
+    {
+        // cout << i << endl;
+        if (maxi2 < v[i])
+        {
+            maxi2 = v[i];
+            index2 = i + 1;
+        }
+    }
+    // cout << maxi << endl;
+    // cout << maxi2 << endl;
+    if (maxi > maxi2)
+    {
+        cout << index2 << endl;
+    }
+    else
+    {
+        cout << index << endl;
+    }
+    return 0;
 }

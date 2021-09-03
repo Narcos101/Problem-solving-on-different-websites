@@ -1,18 +1,9 @@
-/*
-		⣠⣶⡾⠏⠉⠙⠳⢦⡀⠀⠀⠀⢠⠞⠉⠙⠲⡀⠀
-		⠀⠀⠀⣴⠿⠏⠀⠀⠀⠀⠀⠀⢳⡀⠀⡏⠀⠀⠀⠀⠀⢷
-		⠀⠀⢠⣟⣋⡀⢀⣀⣀⡀⠀⣀⡀⣧⠀⢸⠀⠀⠀⠀⠀ ⡇
-		⠀⠀⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲⣿⠀⣸⠀⠀EZ⠀ ⡇
-		⠀⠀⣟⣿⡭⠀⠀⠀⠀⠀⢱⠀⠀⣿⠀⢹⠀⠀⠀⠀⠀ ⡇
-		⠀⠀⠙⢿⣯⠄⠀⠀⠀⢀⡀⠀⠀⡿⠀⠀⡇⠀⠀⠀⠀⡼
-		⠀⠀⠀⠀⠹⣶⠆⠀⠀⠀⠀⠀⡴⠃⠀⠀⠘⠤⣄⣠⠞⠀
-		⠀⠀⠀⠀⠀⢸⣷⡦⢤⡤⢤⣞⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-		⠀⠀⢀⣤⣴⣿⣏⠁⠀⠀⠸⣏⢯⣷⣖⣦⡀⠀⠀⠀⠀⠀⠀
-		⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿⠀⠀⠀⠀⠀⠀
-		⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏⠀⠀⠀⣄⢸⠀⠀⠀⠀⠀⠀
-		⣿⣿⣧⣀⣿………⣀⣰⣏⣘⣆⣀
-		⠀⠀
-		*/
+//Work hard
+//dont let other peoples success demotivate you
+//Dont compromise You deserve Better!!!
+//A problem a day keeps unemployment away
+//if you won't someone else will!!!
+//Do every work wholeheartedly
 #include <bits/stdc++.h>                                         // This will work only for g++ compiler.
 #define for0(i, n) for (int i = 0; i < (int)(n); ++i)            // 0 based indexing
 #define for1(i, n) for (int i = 1; i <= (int)(n); ++i)           // 1 based indexing
@@ -44,14 +35,54 @@ typedef long long ll;
 typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
+
+ll desc(ll n){
+    vector<ll>v;
+    while(n > 0){
+        ll rem = n%10;
+        v.push_back(rem);
+        n = n/10;
+    }
+    sort(v.begin(),v.end(),greater<ll>());
+    string ans = " ";
+    for(auto i:v ){
+        ans += to_string(i);
+    }
+    return stoi(ans);
+}
+
+ll asc(ll n){
+    vector<ll> v;
+    while (n > 0)
+    {
+        ll rem = n % 10;
+        v.push_back(rem);
+        n = n / 10;
+    }
+    sort(v.begin(), v.end());
+    string ans = " ";
+    for (auto i : v)
+    {
+        ans += to_string(i);
+    }
+    return stoi(ans);
+}
+
+
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
-    cin >> t;
-    while (t--)
-    {
-            
+    cout.tie(NULL);
+    ll n,k;
+    cin >> n >> k;
+    while(k-- && n > 0){
+        // cout << desc(n) << " " << asc(n) << endl;
+        ll a = n;
+        n = desc(n) - asc(n);
+        if(a == n){
+            break;
+        }
     }
+    cout << n << endl;
 }

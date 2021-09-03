@@ -48,10 +48,26 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
-    cin >> t;
-    while (t--)
+    int n;
+    cin >> n;
+    int a[n],b[n];
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
+    }
+    for (int i = 0; i < n; i++)
     {
-            
+        cin >> b[i];
+    }
+    sort(a,a+n);
+    sort(b,b+n);
+    int c = a[n-1];
+    int d = b[0];
+    // cout << c << endl;
+    // cout << d << endl;
+    if(c > d){
+        cout << 0 << endl;
+    }
+    else{
+        cout << d-c+1 << endl;
     }
 }

@@ -1,21 +1,19 @@
 //Work hard
 //dont let other peoples success demotivate you
-//Dont compromise You deserve Better!!!
-//A problem a day keeps unemployment away
-//if you won't someone else will!!!
-//Do every work wholeheartedly(bus feels like a sauna)
-#include<bits/stdc++.h> // This will work only for g++ compiler.
-#define for0(i, n) for (int i = 0; i < (int)(n); ++i) // 0 based indexing
-#define for1(i, n) for (int i = 1; i <= (int)(n); ++i) // 1 based indexing
+//Dont compromise You deserve Better!!
+//Competition is fierce if u wont someone else will.
+#include <bits/stdc++.h>                                         // This will work only for g++ compiler.
+#define for0(i, n) for (int i = 0; i < (int)(n); ++i)            // 0 based indexing
+#define for1(i, n) for (int i = 1; i <= (int)(n); ++i)           // 1 based indexing
 #define forc(i, l, r) for (int i = (int)(l); i <= (int)(r); ++i) // closed interver from l to r r inclusive
-#define forr0(i, n) for (int i = (int)(n)-1; i >= 0; --i) // reverse 0 based.
-#define forr1(i, n) for (int i = (int)(n); i >= 1; --i) // reverse 1 based
+#define forr0(i, n) for (int i = (int)(n)-1; i >= 0; --i)        // reverse 0 based.
+#define forr1(i, n) for (int i = (int)(n); i >= 1; --i)          // reverse 1 based
 //short hand for usual tokens
 #define pb push_back
 #define fi first
 #define se second
 // to be used with algorithms that processes a container Eg: find(all(c),42)
-#define all(x) (x).begin(), (x).end() //Forward traversal
+#define all(x) (x).begin(), (x).end()  //Forward traversal
 #define rall(x) (x).rbegin, (x).rend() //reverse traversal
 // traversal function to avoid long template definition. Now with C++11 auto alleviates the pain.
 #define tr(c, i) for (__typeof__((c)).begin() i = (c).begin(); i != (c).end(); i++)
@@ -35,29 +33,30 @@ typedef long long ll;
 typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
+int main()
+{
+    ll n;
+    cin >> n;
+    ll ans=0;
 
-int fact(int n){
-	return (n == 1 || n == 0) ? 1 : n * fact(n-1);
-}
+    if(n >= 1000){
+        ans += n-1000+1;
 
+    }
+    if(n >= 1000000){
+        ans += n-1000000+1;
 
+    }
+    if(n >= 1000000000){
+        ans += n-1000000000+1;
+    }
 
-
-int comb(int l,int r){
-	int combo = fact(l)/fact(r)*fact(l-r);
-	return combo;
-}
-
-
-
-
-
-
-
-int main() {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
-	int l;
-    cin >> l;
-	cout << comb(l-1,11) << endl;    
+    if(n >= 1000000000000){
+        ans += n-1000000000000+1;
+    }
+    
+    if(n >= 1000000000000000){
+        ans += n-1000000000000000+1;
+    }
+    cout << ans << endl;
 }

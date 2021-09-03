@@ -50,8 +50,21 @@ int main()
     cin.tie(NULL);
     int t;
     cin >> t;
-    while (t--)
-    {
-            
+    int a[t],b[t];
+    for(int i = 0; i < t; i++){
+        cin >> a[i] >> b[i];
     }
+    int count = 0;
+    int slope = 0;
+    for (int i = 0; i < t; i++)
+    {
+        for (int j = i+1; j < t; j++)
+        { 
+            slope = (b[j]-b[i])/(a[j]-a[i]);
+            if(slope >= -1 && slope <= 1){
+                count ++;
+            }
+        }
+    }
+    cout << count << endl;
 }

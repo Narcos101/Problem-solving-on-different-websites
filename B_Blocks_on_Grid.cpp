@@ -1,18 +1,4 @@
-/*
-		⣠⣶⡾⠏⠉⠙⠳⢦⡀⠀⠀⠀⢠⠞⠉⠙⠲⡀⠀
-		⠀⠀⠀⣴⠿⠏⠀⠀⠀⠀⠀⠀⢳⡀⠀⡏⠀⠀⠀⠀⠀⢷
-		⠀⠀⢠⣟⣋⡀⢀⣀⣀⡀⠀⣀⡀⣧⠀⢸⠀⠀⠀⠀⠀ ⡇
-		⠀⠀⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲⣿⠀⣸⠀⠀EZ⠀ ⡇
-		⠀⠀⣟⣿⡭⠀⠀⠀⠀⠀⢱⠀⠀⣿⠀⢹⠀⠀⠀⠀⠀ ⡇
-		⠀⠀⠙⢿⣯⠄⠀⠀⠀⢀⡀⠀⠀⡿⠀⠀⡇⠀⠀⠀⠀⡼
-		⠀⠀⠀⠀⠹⣶⠆⠀⠀⠀⠀⠀⡴⠃⠀⠀⠘⠤⣄⣠⠞⠀
-		⠀⠀⠀⠀⠀⢸⣷⡦⢤⡤⢤⣞⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-		⠀⠀⢀⣤⣴⣿⣏⠁⠀⠀⠸⣏⢯⣷⣖⣦⡀⠀⠀⠀⠀⠀⠀
-		⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿⠀⠀⠀⠀⠀⠀
-		⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏⠀⠀⠀⣄⢸⠀⠀⠀⠀⠀⠀
-		⣿⣿⣧⣀⣿………⣀⣰⣏⣘⣆⣀
-		⠀⠀
-		*/
+
 #include <bits/stdc++.h>                                         // This will work only for g++ compiler.
 #define for0(i, n) for (int i = 0; i < (int)(n); ++i)            // 0 based indexing
 #define for1(i, n) for (int i = 1; i <= (int)(n); ++i)           // 1 based indexing
@@ -23,6 +9,12 @@
 #define pb push_back
 #define fi first
 #define se second
+//Work hard
+//dont let other peoples success demotivate you
+//Dont compromise You deserve Better!!!
+//A problem a day keeps unemployment away
+//if you won't someone else will!!!
+//Do every work wholeheartedly //citadel
 // to be used with algorithms that processes a container Eg: find(all(c),42)
 #define all(x) (x).begin(), (x).end()  //Forward traversal
 #define rall(x) (x).rbegin, (x).rend() //reverse traversal
@@ -48,10 +40,25 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
-    cin >> t;
-    while (t--)
-    {
-            
+    int h,w;
+    cin >> h >> w;
+    int a[h][w];
+    int mini = INT_MAX;
+    for(int i = 0; i < h; i++){
+        for(int j = 0;j < w; j++){
+            cin >> a[i][j];
+            mini = min(mini,a[i][j]);
+        }
     }
+    int diff = 0;
+    for (int i = 0; i < h; i++)
+    {
+        for (int j = 0; j < w; j++)
+        {
+            if(a[i][j] > mini){
+                diff += a[i][j]-mini;               
+            }
+        }
+    }
+    cout << diff << endl;
 }

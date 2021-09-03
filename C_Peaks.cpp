@@ -1,50 +1,84 @@
-#include <bits/stdc++.h>
-
-typedef int64_t ll;
+//Work hard, play hard :)
+#include <bits/stdc++.h>                                         // This will work only for g++ compiler.
+#define for0(i, n) for (int i = 0; i < (int)(n); ++i)            // 0 based indexing
+#define for1(i, n) for (int i = 1; i <= (int)(n); ++i)           // 1 based indexing
+#define forc(i, l, r) for (int i = (int)(l); i <= (int)(r); ++i) // closed interver from l to r r inclusive
+#define forr0(i, n) for (int i = (int)(n)-1; i >= 0; --i)        // reverse 0 based.
+#define forr1(i, n) for (int i = (int)(n); i >= 1; --i)          // reverse 1 based
+//short hand for usual tokens
+#define pb push_back
+#define fi first
+#define se second
+// to be used with algorithms that processes a container Eg: find(all(c),42)
+#define all(x) (x).begin(), (x).end()  //Forward traversal
+#define rall(x) (x).rbegin, (x).rend() //reverse traversal
+// traversal function to avoid long template definition. Now with C++11 auto alleviates the pain.
+#define tr(c, i) for (__typeof__((c)).begin() i = (c).begin(); i != (c).end(); i++)
+// find if a given value is present in a container. Container version. Runs in log(n) for set and map
+#define present(c, x) ((c).find(x) != (c).end())
+//find version works for all containers. This is present in std namespace.
+#define cpresent(c, x) (find(all(c), x) != (c).end())
+// Avoiding wrap around of size()-1 where size is a unsigned int.
+#define sz(a) int((a).size())
 using namespace std;
-const int INF = 1000000007;
-
+// Shorthand for commonly used types
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef pair<int, int> ii;
+typedef vector<ii> vii;
+typedef long long ll;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef double ld;
 int main()
 {
-// #ifndef ONLINE_JUDGE
-//     freopen("input.txt", "r", stdin);
-//     freopen("out.txt", "w", stdout);
-// #endif
-    ll n, m;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    ll n,m;
     cin >> n >> m;
-    ll h[n], v[n];
-    for (ll i = 0; i < n; i++)
-    {
-        cin >> h[i];
-        v[i] = 1;
+    ll a[n];
+    map<int,vector<int>>mp;
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
     }
-    while (m--)
-    {
-        ll a, b;
+    for(int i = 0; i < m; i ++ ){
+        ll a,b;
         cin >> a >> b;
-        a--;
-        b--;
-        if (h[a] > h[b])
-        {
-            v[b] = 0;
-        }
-        else if (h[a] < h[b])
-        {
-            v[a] = 0;
-        }
-        else
-        {
-            v[a] = 0;
-            v[b] = 0;
-        }
+        mp[a].push_back(b);
+        mp[b].push_back(a);
     }
     ll count = 0;
-    for (ll i = 0; i < n; i++)
-    {
-        if (v[i] == 1)
-        {
+    for(int i = 1; i <= n; i++){
+        if(mp.count(i) == 0){
+            count ++;
+        }
+    }
+    for(auto &i: mp){
+        ll c,d;
+        c = i.first -1;
+        bool got = true;
+        for(auto j:i.second){
+            d = j-1;
+            if(a[c] > a[d]){
+                continue;
+            }
+            else{
+                got = false;
+                // cout << a[c] << " " << a[d] << endl;
+                break;
+            }
+        }
+        if(got){
             count++;
         }
     }
     cout << count << endl;
+    // for(auto &i: mp){
+    //     cout << i.first << " ";
+    //     for(auto v:i.second){
+    //         cout << v << " ";
+    //     }
+    //     cout << endl;
+    // }
 }

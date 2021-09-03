@@ -1,4 +1,21 @@
-/*
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+    int h,w,x,y;
+    cin >> h >> w >> x >> y;
+    string s[h];
+    for(auto &i: s){
+        cin >> i;
+    }
+    x = x-1;
+    y = y-1;
+    int cnt = -3;
+    for(int i = x; i < h && s[i][y]!='#';i++){
+        cnt++;
+    }
+    for (int i = x; i >= 0                                       /*
 		⣠⣶⡾⠏⠉⠙⠳⢦⡀⠀⠀⠀⢠⠞⠉⠙⠲⡀⠀
 		⠀⠀⠀⣴⠿⠏⠀⠀⠀⠀⠀⠀⢳⡀⠀⡏⠀⠀⠀⠀⠀⢷
 		⠀⠀⢠⣟⣋⡀⢀⣀⣀⡀⠀⣀⡀⣧⠀⢸⠀⠀⠀⠀⠀ ⡇
@@ -34,24 +51,33 @@
 #define cpresent(c, x) (find(all(c), x) != (c).end())
 // Avoiding wrap around of size()-1 where size is a unsigned int.
 #define sz(a) int((a).size())
-using namespace std;
-// Shorthand for commonly used types
-typedef vector<int> vi;
-typedef vector<vi> vvi;
-typedef pair<int, int> ii;
-typedef vector<ii> vii;
-typedef long long ll;
-typedef vector<ll> vll;
-typedef vector<vll> vvll;
-typedef double ld;
-int main()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    int t;
-    cin >> t;
-    while (t--)
-    {
-            
+                    using namespace std;
+         // Shorthand for commonly used types
+         typedef vector<int> vi;
+         typedef vector<vi> vvi;
+         typedef pair<int, int> ii;
+         typedef vector<ii> vii;
+         typedef long long ll;
+         typedef vector<ll> vll;
+         typedef vector<vll> vvll;
+         typedef double ld;
+         int main() {
+             ios_base::sync_with_stdio(false);
+             cin.tie(NULL);
+             int t;
+             cin >> t;
+             while (t--)
+             {
+             }
+         } &&
+         s[i][y] != '#';
+         i--)
+        cnt++;
+    for(int j = y; j < w && s[x][j] != '#';j++){
+        cnt++;
     }
+    for(int j = y; j >= 0 && s[x][j] != '#'; j--){
+        cnt++;
+    }
+    cout << cnt << endl;
 }

@@ -35,29 +35,10 @@ typedef long long ll;
 typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
-
-int fact(int n){
-	return (n == 1 || n == 0) ? 1 : n * fact(n-1);
-}
-
-
-
-
-int comb(int l,int r){
-	int combo = fact(l)/fact(r)*fact(l-r);
-	return combo;
-}
-
-
-
-
-
-
-
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
-	int l;
-    cin >> l;
-	cout << comb(l-1,11) << endl;    
+	int t;
+	cin >> t;
+	while(t--){}
 }

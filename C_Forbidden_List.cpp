@@ -1,18 +1,9 @@
-/*
-		⣠⣶⡾⠏⠉⠙⠳⢦⡀⠀⠀⠀⢠⠞⠉⠙⠲⡀⠀
-		⠀⠀⠀⣴⠿⠏⠀⠀⠀⠀⠀⠀⢳⡀⠀⡏⠀⠀⠀⠀⠀⢷
-		⠀⠀⢠⣟⣋⡀⢀⣀⣀⡀⠀⣀⡀⣧⠀⢸⠀⠀⠀⠀⠀ ⡇
-		⠀⠀⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲⣿⠀⣸⠀⠀EZ⠀ ⡇
-		⠀⠀⣟⣿⡭⠀⠀⠀⠀⠀⢱⠀⠀⣿⠀⢹⠀⠀⠀⠀⠀ ⡇
-		⠀⠀⠙⢿⣯⠄⠀⠀⠀⢀⡀⠀⠀⡿⠀⠀⡇⠀⠀⠀⠀⡼
-		⠀⠀⠀⠀⠹⣶⠆⠀⠀⠀⠀⠀⡴⠃⠀⠀⠘⠤⣄⣠⠞⠀
-		⠀⠀⠀⠀⠀⢸⣷⡦⢤⡤⢤⣞⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-		⠀⠀⢀⣤⣴⣿⣏⠁⠀⠀⠸⣏⢯⣷⣖⣦⡀⠀⠀⠀⠀⠀⠀
-		⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿⠀⠀⠀⠀⠀⠀
-		⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏⠀⠀⠀⣄⢸⠀⠀⠀⠀⠀⠀
-		⣿⣿⣧⣀⣿………⣀⣰⣏⣘⣆⣀
-		⠀⠀
-		*/
+//Work hard
+//dont let other peoples success demotivate you
+//Dont compromise You deserve Better!!!
+//A problem a day keeps unemployment away
+//if you won't someone else will!!!
+//Do every work wholeheartedly(bus feels like a sauna)
 #include <bits/stdc++.h>                                         // This will work only for g++ compiler.
 #define for0(i, n) for (int i = 0; i < (int)(n); ++i)            // 0 based indexing
 #define for1(i, n) for (int i = 1; i <= (int)(n); ++i)           // 1 based indexing
@@ -48,10 +39,51 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
-    cin >> t;
-    while (t--)
-    {
-            
+    int n,x;
+    cin >> x >> n;
+    int a[n];
+    unordered_set<int> hash(n);
+    // sort(a, a + n);
+    for(int i = 0 ;i < n; i++){
+        cin >> a[i];
+        hash.insert(a[i]);
     }
+    int diff = 0;
+    int diff2 = 0;
+    int x1,x2;
+    if(n == 0){
+        cout << x << endl;
+        return 0;
+    }
+    else{
+        x1 = x;
+        x2 = x;
+        int num1 = n;
+        while(n--){
+            x1 ++;
+            if(!hash.count(x1)){
+                diff = x1-x;
+                break;
+            }
+        }
+        while(num1--){
+            x2 --;
+            if(!hash.count(x2)){
+                diff2 = x-x2;
+                break; 
+            }
+        }
+    }
+   // cout << diff << " " << diff2 << endl; 
+    if(diff >= diff2){
+        cout << x2 << endl;
+    }
+    else{
+        cout << x1 << endl;
+    }
+
+    // for(auto i: hash){
+    //     cout << i << endl;
+    // }
+
 }

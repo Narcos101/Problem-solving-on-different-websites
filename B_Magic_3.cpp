@@ -48,10 +48,26 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
-    cin >> t;
-    while (t--)
+    int n, m, x;
+    bool found = false;
+    cin >> n >> m >> x;
+    for (int i = 0; i < n; i++)
     {
-            
+        int a, b;
+        cin >> a >> b;
+        if (a < m && b > x)
+        {
+            found = true;
+            break;
+        }
+    }
+
+    if (found)
+    {
+        cout << "Yes" << endl;
+    }
+    else
+    {
+        cout << "No" << endl;
     }
 }

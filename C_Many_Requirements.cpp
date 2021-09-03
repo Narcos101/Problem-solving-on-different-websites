@@ -1,10 +1,4 @@
-//Work hard
-//dont let other peoples success demotivate you
-//Dont compromise You deserve Better!!!
-//A problem a day keeps unemployment away
-//if you won't someone else will!!!
-//Do every work wholeheartedly(bus feels like a sauna)
-#include<bits/stdc++.h> // This will work only for g++ compiler.
+//Pain of Discipline is better than pain of regret 
 #define for0(i, n) for (int i = 0; i < (int)(n); ++i) // 0 based indexing
 #define for1(i, n) for (int i = 1; i <= (int)(n); ++i) // 1 based indexing
 #define forc(i, l, r) for (int i = (int)(l); i <= (int)(r); ++i) // closed interver from l to r r inclusive
@@ -35,29 +29,14 @@ typedef long long ll;
 typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef double ld;
-
-int fact(int n){
-	return (n == 1 || n == 0) ? 1 : n * fact(n-1);
-}
-
-
-
-
-int comb(int l,int r){
-	int combo = fact(l)/fact(r)*fact(l-r);
-	return combo;
-}
-
-
-
-
-
-
-
 int main() {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
-	int l;
-    cin >> l;
-	cout << comb(l-1,11) << endl;    
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int t;
+    cin >> t;
+    while(t--){
+        int n,m;
+        cin >> n >> m;
+        
+    }
 }
